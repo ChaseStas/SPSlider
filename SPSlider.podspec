@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.name             = 'SPSlider'
   s.version          = '0.1.0'
   s.summary          = 'Look alike iOS slider.'
+  s.swift_version    = '4.2'
 
   s.description      = 'This pod provides look alike iOS slider.'
 
@@ -22,7 +23,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'SPSlider/Classes/**/*'
-  s.swift_version = '4.2'
   
   # s.resource_bundles = {
   #   'SPSlider' => ['SPSlider/Assets/*.png']

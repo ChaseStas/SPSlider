@@ -22,7 +22,7 @@ pod 'SPSlider'
 
 ## Author
 
-ChaseStas, stasparechin@icloud.com
+Stanislau Parechyn, stasparechin@icloud.com
 
 ## License
 
