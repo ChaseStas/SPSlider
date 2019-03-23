@@ -10,6 +10,9 @@ import UIKit
 import SPSlider
 
 class ViewController: UIViewController {
+    @IBOutlet private weak var verticalSliderLabel: UILabel!
+    @IBOutlet private weak var horizontalSliderLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -20,11 +23,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction private func didChangeVerticalSliderValue(_ sender: SPSlider) {
-        print("Vertical slider value: \(sender.value)")
+        verticalSliderLabel.text = "Value: \(NSString(format: "%.2f", sender.value))"
     }
 
     @IBAction private func didChangeHorizontalSliderValue(_ sender: SPSlider) {
-        print("Horizontal slider value: \(sender.value)")
+        horizontalSliderLabel.text = "Value: \(NSString(format: "%.2f", sender.value))"
     }
 }
 

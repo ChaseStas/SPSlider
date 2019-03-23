@@ -134,6 +134,10 @@
                             <constraint firstItem="NE7-Hm-OeR" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="eKG-gH-gTp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="horizontalSliderLabel" destination="0fy-6X-zCc" id="eZl-0c-LCj"/>
+                        <outlet property="verticalSliderLabel" destination="Wfr-co-6Ka" id="ezR-lR-8fQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
