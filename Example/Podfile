@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SPSlider_Example' do
+  pod 'SPSlider', :path => '../'
+
+  target 'SPSlider_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
