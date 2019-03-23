@@ -1,0 +1,16 @@
+PODS:
+  - SPSlider (0.1.0)
+
+DEPENDENCIES:
+  - SPSlider (from `../`)
+
+EXTERNAL SOURCES:
+  SPSlider:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SPSlider: 5a6615ed099b5962d94ea5a37635ea426699649b
+
+PODFILE CHECKSUM: 0fb095de476f4f9eeed3837ecf84bfa9ab96fcc4
+
+COCOAPODS: 1.5.3
