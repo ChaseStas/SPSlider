@@ -7,12 +7,11 @@
 //
 
 import UIKit
+import SPSlider
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,5 +19,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction private func didChangeVerticalSliderValue(_ sender: SPSlider) {
+        print("Vertical slider value: \(sender.value)")
+    }
+
+    @IBAction private func didChangeHorizontalSliderValue(_ sender: SPSlider) {
+        print("Horizontal slider value: \(sender.value)")
+    }
 }
 
