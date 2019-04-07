@@ -13,6 +13,19 @@ class ViewController: UIViewController {
     @IBOutlet private weak var verticalSliderLabel: UILabel!
     @IBOutlet private weak var horizontalSliderLabel: UILabel!
 
+    @IBOutlet private weak var verticalSlider: SPSlider! {
+        didSet {
+            verticalSlider.backgroundColor = UIColor.red.withAlphaComponent(0.2)
+            verticalSlider.trackTintColor = UIColor.red.withAlphaComponent(0.6)
+        }
+    }
+    @IBOutlet private weak var horizontalSlider: SPSlider! {
+        didSet {
+            horizontalSlider.backgroundColor = UIColor.blue.withAlphaComponent(0.2)
+            horizontalSlider.trackTintColor = UIColor.blue.withAlphaComponent(0.6)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }

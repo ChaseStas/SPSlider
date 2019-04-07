@@ -56,15 +56,20 @@ public class SPSlider: UIControl {
     }
 
     /// The colors used to tint default minimum track
-    @IBInspectable public var minimumTrackTintColor: UIColor = .init(white: 0.9, alpha: 1.0) {
+    @IBInspectable public var trackTintColor: UIColor = .init(white: 0.9, alpha: 1.0) {
         didSet {
             setNeedsDisplay()
         }
     }
-    /// The colors used to tint default maximum track
-    @IBInspectable public var maximumTrackTintColor: UIColor = UIColor.black.withAlphaComponent(0.5) {
+
+    public enum Mode {
+        case slider
+        case line(lineWidth:CGFloat)
+    }
+
+    public var currentMode: Mode = .slider {
         didSet {
-            self.backgroundColor = maximumTrackTintColor
+            setNeedsDisplay()
         }
     }
 
@@ -98,6 +103,20 @@ public class SPSlider: UIControl {
         let valuePercent = (abs(minimumValue) + value) / rangeInterval
         let percentValue =  valuePercent > 0 ? valuePercent : 0
 
+        var path: UIBezierPath!
+        switch currentMode {
+        case .slider: path = getPathForSliderMode(for: percentValue)
+        case .line(let lineWidth): path = getPathForLineMode(for: percentValue, lineWidth)
+        }
+
+        context.addPath(path.cgPath)
+        context.closePath()
+
+        context.setFillColor(trackTintColor.cgColor)
+        context.fillPath()
+    }
+
+    private func getPathForSliderMode(for percentValue: CGFloat) -> UIBezierPath {
         var rect: CGRect!
         if isHorizontal {
             let width = frame.width
@@ -107,13 +126,19 @@ public class SPSlider: UIControl {
             let height = frame.height * percentValue
             rect = CGRect(x: 0, y: frame.height - height, width: frame.width, height: frame.height)
         }
+        return UIBezierPath(rect: rect)
+    }
 
-        let path = UIBezierPath(rect: rect)
-        context.addPath(path.cgPath)
-        context.closePath()
-
-        context.setFillColor(minimumTrackTintColor.cgColor)
-        context.fillPath()
+    private func getPathForLineMode(for percentValue: CGFloat, _ lineWidth: CGFloat) -> UIBezierPath {
+        var rect: CGRect!
+        if isHorizontal {
+            rect = CGRect(x: (percentValue * frame.width) - (lineWidth / 2), y: 0, width: lineWidth, height: frame.height)
+        }
+        else {
+            let height = frame.height
+            rect = CGRect(x: 0, y: (height - (height * percentValue)) - (lineWidth / 2), width: frame.width, height: lineWidth)
+        }
+        return UIBezierPath(rect: rect)
     }
 }
 

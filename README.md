@@ -9,8 +9,6 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-https://im4.ezgif.com/tmp/ezgif-4-00a59dc33ea3.gif
-
 <img width="316" src="./example.gif">
 
 ## Requirements
