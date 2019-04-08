@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SPSlider'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'Look alike iOS slider.'
   s.swift_version    = '4.2'
 

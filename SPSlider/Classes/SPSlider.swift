@@ -8,22 +8,22 @@
 import UIKit
 
 @IBDesignable
-public class SPSlider: UIControl {
+open class SPSlider: UIControl {
     /// The direction of the slider
-    @IBInspectable public var isHorizontal: Bool = true {
+    @IBInspectable open var isHorizontal: Bool = true {
         didSet {
             setNeedsDisplay()
         }
     }
     /// The corner radius of the slider
-    @IBInspectable public var radius: CGFloat = 0 {
+    @IBInspectable open var radius: CGFloat = 0 {
         didSet {
             self.layer.masksToBounds = true
             self.layer.cornerRadius = radius
         }
     }
     /// The minimum value of the slider
-    @IBInspectable public var minimumValue: CGFloat = 0 {
+    @IBInspectable open var minimumValue: CGFloat = 0 {
         didSet {
             guard minimumValue < maximumValue else {
                 fatalError("Minimum value should be less than maximum value")
@@ -32,7 +32,7 @@ public class SPSlider: UIControl {
         }
     }
     /// The maximum value of the slider
-    @IBInspectable public var maximumValue: CGFloat = 1 {
+    @IBInspectable open var maximumValue: CGFloat = 1 {
         didSet {
             guard maximumValue > minimumValue else {
                 fatalError("Maximum value should be bigger than minimum value")
@@ -48,7 +48,7 @@ public class SPSlider: UIControl {
         }
     }
     /// Current value of the slider
-    @IBInspectable public var value: CGFloat {
+    @IBInspectable open var value: CGFloat {
         set {
             _value = (minimumValue...maximumValue).clamp(newValue)
         }
@@ -56,7 +56,7 @@ public class SPSlider: UIControl {
     }
 
     /// The colors used to tint default minimum track
-    @IBInspectable public var trackTintColor: UIColor = .init(white: 0.9, alpha: 1.0) {
+    @IBInspectable open var trackTintColor: UIColor = .init(white: 0.9, alpha: 1.0) {
         didSet {
             setNeedsDisplay()
         }
@@ -67,7 +67,7 @@ public class SPSlider: UIControl {
         case line(lineWidth:CGFloat)
     }
 
-    public var currentMode: Mode = .slider {
+    open var currentMode: Mode = .slider {
         didSet {
             setNeedsDisplay()
         }
@@ -75,7 +75,7 @@ public class SPSlider: UIControl {
 
     // MARK: - Touches
 
-    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.location(in: self)
             let previousLocation = touch.previousLocation(in: self)
@@ -90,7 +90,7 @@ public class SPSlider: UIControl {
     }
 
     // MARK: - Drawings
-    override public func draw(_ rect: CGRect) {
+    override open func draw(_ rect: CGRect) {
         super.draw(rect)
 
         guard let context = UIGraphicsGetCurrentContext() else { return }
